@@ -1,0 +1,753 @@
+/* ========================================
+   LIGA - Embaixadores do Rei
+   Igreja Batista Betsaida
+   ======================================== */
+
+:root {
+    --primary-yellow: #FFD700;
+    --primary-blue: #1e40af;
+    --light-blue: #3b82f6;
+    --dark-blue: #0f172a;
+    --white: #ffffff;
+    --light-gray: #f8fafc;
+    --gray: #e2e8f0;
+    --dark-gray: #64748b;
+    --accent-gold: #fbbf24;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    background: linear-gradient(135deg, var(--dark-blue) 0%, #1e3a8a 100%);
+    color: var(--dark-gray);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--light-blue);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-blue);
+}
+
+/* ========================================
+   CONTAINER & LAYOUT
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-sm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+
+.header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+    color: var(--white);
+    padding: 25px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+}
+
+.header-title {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.95;
+    margin-top: 5px;
+}
+
+.nav-buttons,
+.nav-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nav-btn,
+.nav-link {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-btn:hover,
+.nav-link:hover {
+    background: var(--primary-yellow);
+    color: var(--primary-blue);
+    border-color: var(--primary-yellow);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.logout-btn {
+    background: rgba(255, 107, 107, 0.2);
+    border-color: rgba(255, 107, 107, 0.5);
+}
+
+.logout-btn:hover {
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: var(--white);
+}
+
+/* ========================================
+   SECTION
+   ======================================== */
+
+.section {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--primary-blue);
+    animation: slideIn 0.4s ease;
+}
+
+.section h2 {
+    color: var(--primary-blue);
+    border-bottom: 3px solid var(--primary-yellow);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.section h3 {
+    color: var(--primary-blue);
+    font-size: 1.3rem;
+    margin: 20px 0 15px 0;
+}
+
+/* ========================================
+   INFO BOX
+   ======================================== */
+
+.info-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.05) 100%);
+    border-left: 5px solid var(--primary-blue);
+    padding: 18px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.info-box p {
+    margin: 8px 0;
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+.success-box {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.05) 100%);
+    border-left-color: #22c55e;
+}
+
+.success-box p {
+    color: #16a34a;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+    border-left-color: var(--primary-yellow);
+}
+
+.warning-box p {
+    color: var(--accent-gold);
+}
+
+/* ========================================
+   FORMS & INPUTS
+   ======================================== */
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--gray);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input::placeholder {
+    color: var(--dark-gray);
+    opacity: 0.6;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+button,
+.btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+}
+
+button:active,
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #fbbf24 100%);
+    color: var(--primary-blue);
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: var(--white);
+}
+
+.btn-success:hover {
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+.table-section {
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+}
+
+table thead {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+    color: var(--white);
+}
+
+table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--gray);
+}
+
+table tbody tr {
+    transition: all 0.2s ease;
+}
+
+table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pontucao-atual {
+    font-weight: 700;
+    color: var(--primary-blue);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.05) 100%);
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* ========================================
+   RANKING
+   ======================================== */
+
+.ranking-table {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.posicao {
+    font-weight: 900;
+    color: var(--primary-blue);
+    width: 80px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.podium-1 {
+    color: var(--primary-yellow);
+    font-size: 28px;
+}
+
+.podium-2 {
+    color: #c0c0c0;
+    font-size: 26px;
+}
+
+.podium-3 {
+    color: #cd7f32;
+    font-size: 24px;
+}
+
+.classe {
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--accent-gold) 100%);
+    color: var(--primary-blue);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ranking-preview {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 2px solid var(--light-blue);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* ========================================
+   FORMS ESPECIAIS
+   ======================================== */
+
+.edit-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    align-items: end;
+}
+
+.edit-form .form-group {
+    margin-bottom: 0;
+}
+
+.edit-form label {
+    margin-bottom: 3px;
+    font-size: 12px;
+}
+
+.edit-form input,
+.edit-form select {
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.edit-form button {
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.delete-form button {
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-table thead {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+    color: var(--white);
+    border-bottom: 2px solid var(--primary-yellow);
+}
+
+.form-table th,
+.form-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray);
+}
+
+.form-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.form-table input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--gray);
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.form-table input:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ========================================
+   LOGIN PAGE
+   ======================================== */
+
+.login-container {
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 40px;
+    border: 3px solid var(--primary-yellow);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: 0 15px 40px rgba(30, 64, 175, 0.2);
+}
+
+.login-container h1 {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.erro {
+    color: #dc2626;
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(220, 38, 38, 0.1);
+    border-radius: 6px;
+    border-left: 4px solid #dc2626;
+    font-weight: 600;
+}
+
+.voltar {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--gray);
+}
+
+.voltar a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.voltar a:hover {
+    color: var(--light-blue);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-buttons,
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-form {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    table th,
+    table td {
+        padding: 10px 8px;
+    }
+
+    .form-table input {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .section h2 {
+        font-size: 1.4rem;
+    }
+
+    .login-container {
+        margin: 40px 20px;
+        padding: 30px 20px;
+    }
+
+    .login-container h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .nav-buttons,
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-btn,
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-table {
+        font-size: 11px;
+    }
+
+    table th,
+    table td {
+        padding: 8px 6px;
+    }
+
+    button,
+    .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .section h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   UTILITÁRIOS
+   ======================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.text-blue {
+    color: var(--primary-blue);
+}
+
+.text-yellow {
+    color: var(--primary-yellow);
+}
+
+.text-white {
+    color: var(--white);
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+.shadow {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}

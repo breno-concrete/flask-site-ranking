@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGA - Dashboard Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>👑 LIGA Admin</h1>
+                <p class="header-title">Gerenciamento de Embaixadores</p>
+            </div>
+            <div class="nav-buttons">
+                <a href="{{ url_for('admin_semana') }}" class="nav-btn">📊 Pontuação Semanal</a>
+                <a href="{{ url_for('home') }}" class="nav-btn">🏠 Home</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Sair</a>
+            </div>
+        </div>
+
+        <!-- Seção: Adicionar Novo Usuário -->
+        <div class="section">
+            <h2>➕ Adicionar Novo Embaixador</h2>
+            <form method="POST" action="{{ url_for('admin_add') }}">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nascimento">Data de Nascimento:</label>
+                        <input type="text" id="nascimento" name="nascimento" placeholder="DD/MM/YYYY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pontuacao">Pontuação:</label>
+                        <input type="number" id="pontuacao" name="pontuacao" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="classe">Classe:</label>
+                        <select id="classe" name="classe">
+                            <option value="Escudeiro">Escudeiro</option>
+                            <option value="Cavaleiro">Cavaleiro</option>
+                            <option value="Nobre">Nobre</option>
+                            <option value="Lenda">Lenda</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Adicionar Embaixador</button>
+            </form>
+        </div>
+
+        <!-- Seção: Gerenciar Usuários -->
+        <div class="section">
+            <h2>⚙️ Gerenciar Embaixadores</h2>
+            <div class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Pontuação</th>
+                            <th>Classe</th>
+                            <th>Nascimento</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in usuarios %}
+                        <tr>
+                            <td><strong>#{{ usuario.id }}</strong></td>
+                            <td>{{ usuario.nome }}</td>
+                            <td>
+                                <form method="POST" action="{{ url_for('admin_edit', user_id=usuario.id) }}" class="edit-form">
+                                    <input type="number" name="pontuacao" value="{{ usuario.pontuacao }}" style="width: 80px;">
+                                    <select name="classe" style="width: 120px;">
+                                        <option value="Escudeiro" {% if usuario.classe == 'Escudeiro' %}selected{% endif %}>Escudeiro</option>
+                                        <option value="Cavaleiro" {% if usuario.classe == 'Cavaleiro' %}selected{% endif %}>Cavaleiro</option>
+                                        <option value="Nobre" {% if usuario.classe == 'Nobre' %}selected{% endif %}>Nobre</option>
+                                        <option value="Lenda" {% if usuario.classe == 'Lenda' %}selected{% endif %}>Lenda</option>
+                                    </select>
+                                    <input type="hidden" name="nome" value="{{ usuario.nome }}">
+                                    <input type="hidden" name="nascimento" value="{{ usuario.nascimento }}">
+                                    <button type="submit" class="btn-warning">✏️ Atualizar</button>
+                                </form>
+                            </td>
+                            <td>{{ usuario.classe }}</td>
+                            <td>{{ usuario.nascimento }}</td>
+                            <td>
+                                <form method="POST" action="{{ url_for('admin_delete', user_id=usuario.id) }}" class="delete-form" onsubmit="return confirm('Tem certeza que deseja deletar este embaixador?');">
+                                    <button type="submit" class="btn-danger">🗑️ Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Seção: Preview do Ranking -->
+        <div class="section">
+            <h2>📊 Preview do Ranking</h2>
+            <div class="ranking-preview">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Pontuação</th>
+                            <th>Classe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in ranking %}
+                        <tr>
+                            <td style="font-weight: bold;">
+                                {% if user.posicao == 1 %}🥇{% elif user.posicao == 2 %}🥈{% elif user.posicao == 3 %}🥉{% else %}{{ user.posicao }}º{% endif %}
+                            </td>
+                            <td>{{ user.nome }}</td>
+                            <td>{{ user.pontuacao }} pts</td>
+                            <td>{{ user.classe }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

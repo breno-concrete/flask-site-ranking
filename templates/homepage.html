@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGA - Ranking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>⚔️ LIGA</h1>
+                <p class="header-title">Embaixadores do Rei - Igreja Batista Betsaida</p>
+            </div>
+            <a href="{{ url_for('login') }}" class="nav-link">🔐 Acesso Admin</a>
+        </div>
+
+        {% if ranking %}
+        <div class="section">
+            <h2>🏆 Ranking Geral</h2>
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Posição</th>
+                        <th>Nome</th>
+                        <th>Pontuação</th>
+                        <th>Classe</th>
+                        <th>Nascimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in ranking %}
+                    <tr>
+                        <td class="posicao">
+                            {% if user.posicao == 1 %}
+                                <span class="podium-1">🥇</span>
+                            {% elif user.posicao == 2 %}
+                                <span class="podium-2">🥈</span>
+                            {% elif user.posicao == 3 %}
+                                <span class="podium-3">🥉</span>
+                            {% else %}
+                                {{ user.posicao }}º
+                            {% endif %}
+                        </td>
+                        <td><strong>{{ user.nome }}</strong></td>
+                        <td class="pontucao-atual">{{ user.pontuacao }} pts</td>
+                        <td><span class="classe">{{ user.classe }}</span></td>
+                        <td>{{ user.nascimento }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="section">
+            <p class="text-center">Nenhum usuário registrado ainda.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

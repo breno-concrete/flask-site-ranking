@@ -1,0 +1,74 @@
+{
+	"usuarios":[
+		{
+			"id":1,
+			"nome":"Francisco Arthur Oliveira da Silva",
+			"nascimento":"09/11/2008",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":2,
+			"nome":"Pedro Henrique da Silva Rodrigues dos Santos",
+			"nascimento":"30/11/2009",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":3,
+			"nome":"Vitor Brandão da Silva",
+			"nascimento":"24/04/2010",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":4,
+			"nome":"Alexsander César da Silva Alves",
+			"nascimento":"16/04/2011",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":5,
+			"nome":"Christian Adriel Xavier de Sousa",
+			"nascimento":"20/10/2009",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":6,
+			"nome":"Pedro Henrique Xavier Ferreira",
+			"nascimento":"14/09/2012",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":7,
+			"nome":"Davi Silva Vieira",
+			"nascimento":"08/11/2015",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":8,
+			"nome":"Kadu Ariel da Silva Feitosa",
+			"nascimento":"20/12/2008",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":9,
+			"nome":"Gustavo Antonio Xavier Santos",
+			"nascimento":"05/06/2010",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		},
+		{
+			"id":10,
+			"nome":"Leonardo Xavier Santos",
+			"nascimento":"09/11/2008",
+			"pontuacao":0,
+			"classe": "Escudeiro"
+		}
+	]
+}

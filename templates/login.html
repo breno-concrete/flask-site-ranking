@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGA - Acesso Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>🔐 LIGA</h1>
+        <p class="login-subtitle">Acesso Admin - Igreja Batista Betsaida</p>
+        <form method="POST">
+            <div class="form-group">
+                <label for="token">Token de Acesso:</label>
+                <input type="password" id="token" name="token" placeholder="Insira o token de admin" required>
+            </div>
+            <button type="submit" class="btn-submit">Entrar na LIGA</button>
+        </form>
+        {% if erro %}
+            <p class="erro">{{ erro }}</p>
+        {% endif %}
+        <div class="voltar">
+            <a href="{{ url_for('home') }}">← Voltar ao ranking</a>
+        </div>
+    </div>
+</body>
+</html>
